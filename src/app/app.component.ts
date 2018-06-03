@@ -6,22 +6,14 @@ import { ParqueaderoService } from './servicios/parqueadero.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
-  title = 'sdjvnwsdlvsl';
+  title = 'Parqueadero Ceiba';
   vehiculos;
 
   constructor(private parqueadero: ParqueaderoService) {
   }
 
-  ngOnInit(): void {
-   this.parqueadero.consultarVehiculosEnParqueadero('1')
-   .subscribe(
-    (vehiculos) => {
-      this.vehiculos = vehiculos;
-    },
-    (error) => { console.log(error); }
-   );
-  }
+ 
 
 }

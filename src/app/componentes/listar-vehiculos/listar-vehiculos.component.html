@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Placa</th>
+          <th>Tipo de vehiculo</th>
+          <th>Cilindraje</th>
+          <th>Propietario</th>
+          <th> -- </th><
+      </tr>
+  </thead>
+  <tbody *ngFor="let vehiculo of vehiculos">
+      <tr>
+          <td> {{vehiculo.placa}} </td>
+          <td> {{vehiculo.tipoVehiculo.nombre}} </td>
+          <td> {{vehiculo.propietario}} </td>
+          <td> {{vehiculo.cilindraje}} </td>
+          <td> <a class="btn btn-info" (click)="retirarVehiculo(vehiculo)">Sacar vehiculo del parqueadero</a> </td>
+      </tr>
+  </tbody>
+</table>

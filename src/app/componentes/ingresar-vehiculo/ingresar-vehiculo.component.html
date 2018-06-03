@@ -1,3 +1,31 @@
-<p>
-  ingresar-vehiculo works!
-</p>
+<p class="h3">Ingresar Vehiculo</p>
+
+<div class="container card shadow">
+<form  [formGroup]="formIngresarVehiculo">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Placa<span class="text-danger"> * </span></label>
+    <input type="text" class="form-control" id="placa" formControlName="placa">
+    <div class="alert alert-danger"  *ngIf="formIngresarVehiculo.get('placa').touched && !formIngresarVehiculo.get('placa').valid">La placa es obligatoria</div>
+  </div>
+  <div class="form-group">
+    <label for="propietario">Propietario <span class="text-danger"> *</span></label>
+    <input type="text" class="form-control" id="propietario" formControlName="propietario">
+    <div class="alert alert-danger"  *ngIf="formIngresarVehiculo.get('propietario').touched && !formIngresarVehiculo.get('propietario').valid">Cilindraje obligatoria</div>
+  </div>
+  <div class="form-group">
+    <label for="cilindraje">Cilindraje <span class="text-danger">*</span></label>
+    <input type="number" class="form-control" id="cilindraje" formControlName="cilindraje">
+    <div class="alert alert-danger"  *ngIf="formIngresarVehiculo.get('cilindraje').touched && !formIngresarVehiculo.get('cilindraje').valid">Cilindraje obligatoria</div>
+  </div>
+  <div class="form-group">
+    <label for="tipo">Tipo vehiculo <span class="text-danger"> *</span></label>
+    <p-dropdown [id]="'tipo'" placeholder="Seleccione tipo" [options]="tiposVehiculo" formControlName="tipoVehiculo" [optionLabel]="'nombre'"></p-dropdown>
+    <!-- <div class="alert alert-danger"  *ngIf="formIngresarVehiculo.get('tiposVehiculo').touched && !formIngresarVehiculo.get('tiposVehiculo').valid">Cilindraje obligatoria</div> -->
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="enviarFormulario()">Ingresar</button>
+
+</form>
+</div>
+
+{{formIngresarVehiculo.value | json}}
+{{formIngresarVehiculo.valid | json}}
