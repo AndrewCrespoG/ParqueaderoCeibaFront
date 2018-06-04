@@ -5,15 +5,15 @@
           <th>Tipo de vehiculo</th>
           <th>Cilindraje</th>
           <th>Propietario</th>
-          <th> acciones </th>
+          <th>Acciones</th>
       </tr>
   </thead>
   <tbody *ngFor="let vehiculo of vehiculos">
       <tr>
           <td> {{vehiculo.placa}} </td>
           <td> {{vehiculo.tipoVehiculo.nombre}} </td>
-          <td> {{vehiculo.propietario}} </td>
           <td> {{vehiculo.cilindraje}} </td>
+          <td> {{vehiculo.propietario}} </td>
           <td> <a class="btn btn-info" (click)="retirarVehiculo(vehiculo)">Sacar vehiculo del parqueadero</a> </td>
       </tr>
   </tbody>

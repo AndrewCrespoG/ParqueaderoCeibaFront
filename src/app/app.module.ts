@@ -9,13 +9,17 @@ import { ListarVehiculosComponent } from './componentes/listar-vehiculos/listar-
 import {DropdownModule} from 'primeng/dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IngresarVehiculoComponent,
-    ListarVehiculosComponent
+    ListarVehiculosComponent,
+    NavBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

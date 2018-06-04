@@ -37,7 +37,12 @@ export class IngresarVehiculoComponent implements OnInit {
     if(this.formIngresarVehiculo.valid) {
           this.parqueaderoService.ingresarVehiculosEnParqueadero(this.formIngresarVehiculo.value)
           .subscribe(res => {
-            console.log(res)
+            console.log(res);
+            swal({
+              title: 'Vehiculo guardado',
+              text: 'Vehiculo guardado con éxito en el parqueadeor'
+            })
+            location.reload(true);
           }, error => {
             console.log(error)
           });
