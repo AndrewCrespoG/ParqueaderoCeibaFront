@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class ParqueaderoService {
 
   urlConsultarVehiculos = 'http://localhost:5678/parqueadero/vehiculo/listar-vehiculos';
-  urlAgregarVehiculos ='http://localhost:5678/parqueadero/vehiculo/retirar-vehiculo';
+  urlAgregarVehiculos ='http://localhost:5678/parqueadero/vehiculo/ingresar-vehiculo';
+  urlEliminarVehiculo = 'http://localhost:5678/parqueadero/vehiculo/retirar-vehiculo';
 
   constructor(private http: HttpClient) { }
 
@@ -20,8 +21,7 @@ export class ParqueaderoService {
     return this.http.post(this.urlAgregarVehiculos, vehiculo);
    }
 
-   public retirarVehiculo(vehiculo) {
-    return this.http.post(this.urlAgregarVehiculos, vehiculo);
-
+   public retirarVehiculo(vehiculo): Observable<any> {
+    return this.http.post(this.urlEliminarVehiculo, vehiculo);
    }
 }

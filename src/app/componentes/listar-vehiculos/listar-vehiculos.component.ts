@@ -27,18 +27,20 @@ export class ListarVehiculosComponent implements OnInit {
    }
 
    async retirarVehiculo(vehiculo) {
-     let confirmar = this.comfirmarSalida();
+     let confirmar = await this.comfirmarSalida();
      if (confirmar) {
        this.servicioRetirarVehiculo(vehiculo);
      }
    }
 
-   servicioRetirarVehiculo(vehiculo) {
+   servicioRetirarVehiculo(vehiculoRetirar) {
      
-    this.parqueadero.retirarVehiculo(vehiculo)
+    this.parqueadero.retirarVehiculo(vehiculoRetirar)
     .subscribe(
-      (res) => {
-        swal(`<div>${JSON.stringify(res)}</div>`, {
+      res => {
+        this.vehiculos = this.vehiculos.filter( (vehiculo) => vehiculoRetirar.placa !== vehiculo.placa);
+        swal(`Valor a pagar: ${res.valor}
+              Fecha salida: ${res.fechaSalida}`, {
           icon: 'success',
         });
       },
