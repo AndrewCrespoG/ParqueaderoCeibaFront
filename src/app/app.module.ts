@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { TrmComponent } from './componentes/trm/trm.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     IngresarVehiculoComponent,
     ListarVehiculosComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    TrmComponent
   ],
   imports: [
     BrowserModule,
