@@ -14,7 +14,8 @@
           <td> {{vehiculo.tipoVehiculo.nombre}} </td>
           <td> {{vehiculo.cilindraje}} </td>
           <td> {{vehiculo.propietario}} </td>
-          <td> <a class="btn btn-info" (click)="retirarVehiculo(vehiculo)">Sacar vehiculo del parqueadero</a> </td>
+          <!-- <td> <a class="btn btn-success" (click)="retirarVehiculo(vehiculo)">Sacar vehiculo del parqueadero</a> </td> -->
+          <td><button type="submit" class="btn btn-success col-sm-12" (click)="retirarVehiculo(vehiculo)">Retirar</button></td>
       </tr>
   </tbody>
 </table>

@@ -16,7 +16,7 @@ export class IngresarVehiculoComponent implements OnInit {
   {
     nombre: 'Automovil',
     id: 0
-  }]
+  }];
 
   formIngresarVehiculo: FormGroup;
 
@@ -30,22 +30,32 @@ export class IngresarVehiculoComponent implements OnInit {
         cilindraje: new FormControl('', [Validators.required]),
         tipoVehiculo: new FormControl( null, [Validators.required])
       }
-    )
+    );
   }
 
   enviarFormulario () {
-    if(this.formIngresarVehiculo.valid) {
-          this.parqueaderoService.ingresarVehiculosEnParqueadero(this.formIngresarVehiculo.value)
-          .subscribe(res => {
-            console.log(res);
-            swal({
-              title: 'Vehiculo guardado',
-              text: 'Vehiculo guardado con éxito en el parqueadeor'
-            })
-            location.reload(true);
-          }, error => {
-            console.log(error)
-          });
-    } 
+    if (this.formIngresarVehiculo.valid) {
+      this.parqueaderoService.ingresarVehiculosEnParqueadero(this.formIngresarVehiculo.value)
+      .subscribe(res => {
+        console.log(res);
+        swal({
+          title: 'Vehiculo guardado',
+          text: 'Vehiculo guardado con éxito en el parqueadeor',
+          icon: 'success'
+        });
+      }, error => {
+        swal({
+          title: 'Problema',
+          text: error.error.message,
+          icon: 'error'
+        });
+        console.log(error);
+      });
+    } else {
+      swal({
+        icon: 'https://pbs.twimg.com/profile_images/1251329443/facepalm_200x200.jpeg',
+        text: 'Parce primero rellene todo el formulario'
+      });
+    }
   }
  }

@@ -15,7 +15,7 @@ export class ListarVehiculosComponent implements OnInit {
 
   constructor(private parqueadero: ParqueaderoService) {
   }
-  
+
   ngOnInit(): void {
     this.parqueadero.consultarVehiculosEnParqueadero('1')
     .subscribe(
@@ -27,32 +27,35 @@ export class ListarVehiculosComponent implements OnInit {
    }
 
    async retirarVehiculo(vehiculo) {
-     let confirmar = await this.comfirmarSalida();
+     const confirmar = await this.comfirmarSalida();
      if (confirmar) {
        this.servicioRetirarVehiculo(vehiculo);
      }
    }
 
    servicioRetirarVehiculo(vehiculoRetirar) {
-     
     this.parqueadero.retirarVehiculo(vehiculoRetirar)
     .subscribe(
       res => {
         this.vehiculos = this.vehiculos.filter( (vehiculo) => vehiculoRetirar.placa !== vehiculo.placa);
-        swal(`Valor a pagar: ${res.valor}
-              Fecha salida: ${res.fechaSalida}`, {
+        swal(`
+          Fecha salida: ${res.fechaSalida}
+          Fecha de entrada: ${res.fechaIngreso}
+          Horas cobradas en parqueadero: ${res.horas}
+          Valor a pagar: ${res.valor}`, {
           icon: 'success',
         });
       },
       (error) => { console.log(error); }
-    )
+    );
    }
 
    async comfirmarSalida() {
-    const res =  await swal("Are you sure you want to do this?", {
-      buttons: ["Oh noez!", true],
-    });
-
+    const res =  await swal(
+      'Estas seguro de retirar el vehiculo seleccinado?', {
+        buttons: ['No', 'Si'],
+        icon: 'warning'
+      });
     return res;
    }
 }
