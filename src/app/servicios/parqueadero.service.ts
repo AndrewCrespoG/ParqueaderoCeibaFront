@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ParqueaderoService {
 
   urlConsultarVehiculos = 'http://localhost:5678/parqueadero/vehiculo/listar-vehiculos';
-  urlAgregarVehiculos ='http://localhost:5678/parqueadero/vehiculo/ingresar-vehiculo';
+  urlAgregarVehiculos = 'http://localhost:5678/parqueadero/vehiculo/ingresar-vehiculo';
   urlEliminarVehiculo = 'http://localhost:5678/parqueadero/vehiculo/retirar-vehiculo';
 
   constructor(private http: HttpClient) { }
